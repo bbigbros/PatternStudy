@@ -1,13 +1,16 @@
 ﻿using System;
 using Pattern.ICollection;
-using Pattern.CActions;
+using Pattern.CAction.Flys;
 
 namespace Pattern
 {
     abstract class Duck
     {
         protected IFlyBehavior flybehavior;
+        protected IQuackBehavior quackbehavior;
+
         public Duck(){}
+
         public void Fly()
         {
             flybehavior.Fly();
@@ -15,8 +18,9 @@ namespace Pattern
 
         public void Quack()
         {
-            Console.WriteLine("Quack Quack!!");
+            quackbehavior.Quack();
         }
+
         public void Swim()
         {
             Console.WriteLine("Duck is swimming..");
@@ -29,6 +33,7 @@ namespace Pattern
         public RedDuck()
         {
             flybehavior = new DuckSlowFly();
+            quackbehavior = new DuckCrazyQuack();
         }
     
         public override void Display()
@@ -42,6 +47,7 @@ namespace Pattern
         public YelloDuck()
         {
             flybehavior = new DuckNonFly();
+            quackbehavior = new DuckMuteQuack();
         }
         public override void Display()
         {
