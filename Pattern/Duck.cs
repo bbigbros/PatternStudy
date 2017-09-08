@@ -1,34 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using Pattern.ICollection;
+using Pattern.CActions;
 
 namespace Pattern
 {
-    class Duck
+    abstract class Duck
     {
-        public virtual void Fly()
+        protected IFlyBehavior flybehavior;
+        public Duck(){}
+        public void Fly()
         {
-            Console.WriteLine("Duck is flying....");
+            flybehavior.Fly();
         }
-        public virtual void Quack()
+
+        public void Quack()
         {
             Console.WriteLine("Quack Quack!!");
         }
-        public virtual void Swim()
+        public void Swim()
         {
             Console.WriteLine("Duck is swimming..");
         }
-        public virtual void Display()
-        {
-            Console.WriteLine("Duck is white!");
-        }
+        public abstract void Display();
     }
 
     class RedDuck : Duck
     {
+        public RedDuck()
+        {
+            flybehavior = new DuckSlowFly();
+        }
+    
         public override void Display()
         {
-            Console.WriteLine("RedDuck is Red!!!");
+            Console.WriteLine("I'm RedDuck.....");
+        }
+    }
+
+    class YelloDuck : Duck
+    {
+        public YelloDuck()
+        {
+            flybehavior = new DuckNonFly();
+        }
+        public override void Display()
+        {
+            Console.WriteLine("I'm YellowDuck.....");
         }
     }
 }
