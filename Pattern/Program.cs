@@ -7,12 +7,15 @@ namespace Pattern
     class Program
     {
         static void Main(string[] args)
-        {
-            Console.WriteLine("Hello Pattern ");
-            Console.WriteLine("--------------------------");
-
+        { 
             RedDuck rd = new RedDuck();
             rd.Display();
+            rd.Fly();
+            Console.WriteLine();
+            YelloDuck yd = new YelloDuck();
+            yd.Display();
+            yd.Fly();
+            Console.WriteLine();
         }
     }
 }
