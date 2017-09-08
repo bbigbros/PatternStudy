@@ -12,7 +12,7 @@ namespace Pattern
             Console.WriteLine("--------------------------");
 
             RedDuck rd = new RedDuck();
-            rd.display();
+            rd.Display();
         }
     }
 }
