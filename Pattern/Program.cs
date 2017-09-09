@@ -12,6 +12,7 @@ namespace Pattern
             rd.Fly();
             rd.Quack();
             Console.WriteLine();
+
             YelloDuck yd = new YelloDuck();
             yd.Display();
             yd.Fly();
